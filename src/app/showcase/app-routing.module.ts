@@ -1,6 +1,7 @@
 import { Routes,RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
+import { InstargallComponent } from './components/instargall/instargall.component';
 
 @NgModule({
     imports: [
@@ -90,7 +91,9 @@ import { HomeComponent } from './components/home/home.component';
             {path: 'tree', loadChildren: './components/tree/treedemo.module#TreeDemoModule'},
             {path: 'treetable', loadChildren: './components/treetable/treetabledemo.module#TreeTableDemoModule'},
             {path: 'tristatecheckbox', loadChildren: './components/tristatecheckbox/tristatecheckboxdemo.module#TriStateCheckboxDemoModule'},
-            {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'}
+            {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'},
+
+            {path: 'instargall', component: InstargallComponent},
         ])    
     ],
     exports: [RouterModule]

@@ -176,6 +176,7 @@
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
             
 .ui-g::after {

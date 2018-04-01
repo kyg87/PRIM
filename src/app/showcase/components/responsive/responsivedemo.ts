@@ -122,7 +122,11 @@ export class ResponsiveDemo implements OnInit {
     }
 
     ngOnInit() {
-        this.carService.getCarsMedium().then(cars => this.cars = cars);
+        this.carService.getCarsMedium().then(cars => {
+            this.cars = cars;
+            console.log(this.cars)
+        }
+        );
         this.nodeService.getFiles().then(files => this.files = files);
         this.carService.getCarsSmall().then(cars1 => this.cars1 = cars1);
         this.carService.getCarsSmall().then(cars3 => this.sourceCars = cars3);

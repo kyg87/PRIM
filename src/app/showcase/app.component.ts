@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger,state,style,transition,animate} from '@angular/animations';
-
+import { HumorService } from './service/humor.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [ HumorService ],
   animations: [
       trigger('overlayState', [
           state('hidden', style({

@@ -243,6 +243,15 @@
                 <a [routerLink]="['/codehighlighter']" (click)="menuActive = false">&#9679; CodeHighlighter</a>
                 <a [routerLink]="['/terminal']" (click)="menuActive = false">&#9679; Terminal</a>
             </div>
+            <a id="menu_instar" #instartitle [class.active-menuitem]="instartitle.id == activeMenuId"
+                    (click)="activeMenuId = (activeMenuId === instartitle.id ? null : instartitle.id)">
+                    <img src="assets/showcase/images/icons/misc-active.svg" class="layout-menu-icon-active"/>
+                    <img src="assets/showcase/images/icons/misc.svg" class="layout-menu-icon-inactive"/>
+                    <span>instar</span>
+            </a>
+            <div [ngClass]="{'submenushow': (instartitle.id == activeMenuId), 'submenuhide': (instartitle.id != activeMenuId)}">
+                <a [routerLink]="['/instargall']" (click)="menuActive = false">&#9679; instarGalleria</a>
+            </div>
         </div>
     </div>
 

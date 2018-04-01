@@ -45,7 +45,10 @@ export class DataViewDemo implements OnInit {
     constructor(private carService: CarService) { }
 
     ngOnInit() {
-        this.carService.getCarsLarge().then(cars => this.cars = cars);
+        this.carService.getCarsLarge().then(cars => {
+            this.cars = cars;
+            console.log(this.cars)
+        });
 
         this.sortOptions = [
             {label: 'Newest First', value: '!year'},
