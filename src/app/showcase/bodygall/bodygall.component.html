@@ -1,3 +1,4 @@
+<div class="content-section implementation">
 <p-growl [value]="msgs"></p-growl>
 
 <p-panel header="Godfather I" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
@@ -43,3 +44,48 @@
       Footer content here
   </p-footer>
 </p-panel>
+
+<h3>Priority</h3>
+    <p-table [columns]="cols" [value]="data">
+        <ng-template pTemplate="caption">
+            List of data
+        </ng-template>
+        <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 70%;">
+                        <div style="font-size:1.3em; color:Tomato">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </th>
+                    <th class="ui-p-4">
+                        <div style="font-size:1.3em; color:Tomato">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </th>
+                    <th class="ui-p-5">
+                        <div style="font-size:1.3em; color:Tomato">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </th>
+                    
+                    <th class="ui-p-6">
+                        <div style="font-size:1.3em; color:Tomato">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </th>
+              
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-car style="margin-top: 20px">
+                <tr>
+                    <td><a [routerLink]="['/content','body','1', car._id ]" >{{car.title}}</a></td>
+                    <td class="ui-p-4">{{car.title}}</td>
+                    <td class="ui-p-5">&#123;&#123;ui-p-5&#125;&#125;</td>
+                    <td class="ui-p-6">&#123;&#123;ui-p-6&#125;&#125;</td>
+                </tr>
+            </ng-template>
+        <ng-template pTemplate="summary">
+            There are &#123;&#123;data?.length&#125;&#125; data
+        </ng-template>
+    </p-table>
+</div>

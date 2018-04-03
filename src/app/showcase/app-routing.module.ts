@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { InstargallComponent } from './components/instargall/instargall.component';
 import { BodygallComponent } from './bodygall/bodygall.component';
-
+import { ContentComponent } from './content/content.component';
 @NgModule({
     imports: [
         RouterModule.forRoot([
@@ -96,6 +96,7 @@ import { BodygallComponent } from './bodygall/bodygall.component';
 
             {path: 'instargall', component: InstargallComponent},
             {path: 'bodygall', component: BodygallComponent},
+            {path: 'content/:type/:page/:id', component: ContentComponent},
         ])    
     ],
     exports: [RouterModule]

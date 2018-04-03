@@ -24,12 +24,15 @@ import { BodygallComponent } from './bodygall/bodygall.component';
 import { PanelModule } from '../components/panel/panel';
 import {GrowlModule} from '../components/growl/growl';
 import {SplitButtonModule} from '../components/splitbutton/splitbutton';
+import {TableModule} from '../components/table/table';
+import { ContentComponent } from './content/content.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InstargallComponent,
-    BodygallComponent
+    BodygallComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import {SplitButtonModule} from '../components/splitbutton/splitbutton';
     GalleriaModule,
     PanelModule,
     GrowlModule,
-    SplitButtonModule
+    SplitButtonModule,
+    TableModule
   ],
   providers: [
       { provide: LocationStrategy, useClass: HashLocationStrategy },
