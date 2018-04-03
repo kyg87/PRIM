@@ -19,11 +19,17 @@ import { DataViewModule } from '../components/dataview/dataview';
 import {CardModule} from '../components/card/card';
 import {ButtonModule} from '../components/button/button';
 import {GalleriaModule} from '../components/galleria/galleria';
+import { BodygallComponent } from './bodygall/bodygall.component';
+
+import { PanelModule } from '../components/panel/panel';
+import {GrowlModule} from '../components/growl/growl';
+import {SplitButtonModule} from '../components/splitbutton/splitbutton';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InstargallComponent
+    InstargallComponent,
+    BodygallComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,10 @@ import {GalleriaModule} from '../components/galleria/galleria';
     DataViewModule,
     CardModule,
     ButtonModule,
-    GalleriaModule
+    GalleriaModule,
+    PanelModule,
+    GrowlModule,
+    SplitButtonModule
   ],
   providers: [
       { provide: LocationStrategy, useClass: HashLocationStrategy },

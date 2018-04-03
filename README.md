@@ -61,3 +61,17 @@ Configure required styles at the styles section, example below uses the Omega th
 ```
 
 That is all, you may now import PrimeNG components, for a working example visit the [PrimeNG CLI QuickStart sample](https://github.com/primefaces/primeng-quickstart-cli) at GitHub.
+
+
+primeNG\src\app\showcase>
+
+앵귤러 CLI 사용법 기초
+
+ng generate component header --dry-run
+ng g c header –d
+ng g c header --spec false –d
+ng g c footer --inline-template --spec false –d
+ng g c footer -it --spec false –d
+ng g c footer -it --inline-style --spec false –d
+ng g c footer -it -is --spec false –d
+ng g c header -m --spec false --skip import -d

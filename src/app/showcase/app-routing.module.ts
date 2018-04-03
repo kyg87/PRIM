@@ -2,6 +2,7 @@ import { Routes,RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { InstargallComponent } from './components/instargall/instargall.component';
+import { BodygallComponent } from './bodygall/bodygall.component';
 
 @NgModule({
     imports: [
@@ -94,6 +95,7 @@ import { InstargallComponent } from './components/instargall/instargall.componen
             {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'},
 
             {path: 'instargall', component: InstargallComponent},
+            {path: 'bodygall', component: BodygallComponent},
         ])    
     ],
     exports: [RouterModule]

@@ -15,6 +15,7 @@ export class DataTableResponsiveDemo implements OnInit {
 
     ngOnInit() {
         this.carService.getCarsMedium().then(cars => this.cars = cars);
+        console.log(this.cars);
     }
     
     toggle() {

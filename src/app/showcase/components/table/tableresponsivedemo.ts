@@ -81,8 +81,11 @@ export class TableResponsiveDemo implements OnInit {
     constructor(private carService: CarService) { }
 
     ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
-
+        this.carService.getCarsSmall().then(cars => {
+            this.cars = cars;
+            console.log(this.cars);
+        });
+        
         this.cols = [
             { field: 'vin', header: 'Vin' },
             { field: 'year', header: 'Year' },
