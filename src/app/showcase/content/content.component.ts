@@ -10,12 +10,13 @@ export class ContentComponent implements OnInit {
 
   data : any;
   type : any;
+  page : any
   constructor(
     private humorService : HumorService,
     private route : ActivatedRoute,
   ) { 
     this.type = this.route.snapshot.paramMap.get('type');
-    const page = this.route.snapshot.paramMap.get('page');
+    this.page = this.route.snapshot.paramMap.get('page');
     const id = this.route.snapshot.paramMap.get('id');
 
     if (this.type == 'star') {
