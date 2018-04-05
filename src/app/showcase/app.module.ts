@@ -26,6 +26,7 @@ import {GrowlModule} from '../components/growl/growl';
 import {SplitButtonModule} from '../components/splitbutton/splitbutton';
 import {TableModule} from '../components/table/table';
 import { ContentComponent } from './content/content.component';
+import { AdsenseModule } from 'ng2-adsense';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,11 @@ import { ContentComponent } from './content/content.component';
     PanelModule,
     GrowlModule,
     SplitButtonModule,
-    TableModule
+    TableModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-2651262364281330',
+      adSlot: 4461430600,
+    }),
   ],
   providers: [
       { provide: LocationStrategy, useClass: HashLocationStrategy },

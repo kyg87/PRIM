@@ -606,7 +606,7 @@ body {
     }
 
     #layout-sidebar {
-        top: 100px;
+        top: 70px;
         left: -300px;
         transition: left .3s;
         z-index: 9999;
@@ -618,7 +618,9 @@ body {
 
     #layout-content {
         margin-left: 0;
-        padding-top: 100px;
+        /* padding-top: 100px; */
+        padding-top: 50px;
+        
     }
 
     .topbar-menu > li.topbar-menu-themes > ul {

@@ -94,8 +94,8 @@ import { ContentComponent } from './content/content.component';
             {path: 'tristatecheckbox', loadChildren: './components/tristatecheckbox/tristatecheckboxdemo.module#TriStateCheckboxDemoModule'},
             {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'},
 
-            {path: 'instargall', component: InstargallComponent},
-            {path: 'bodygall', component: BodygallComponent},
+            {path: 'instagall', component: InstargallComponent},
+            {path: 'content/:type/:page', component: BodygallComponent},
             {path: 'content/:type/:page/:id', component: ContentComponent},
         ])    
     ],

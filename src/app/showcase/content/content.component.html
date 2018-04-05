@@ -1,5 +1,21 @@
+<div class="content-section introduction">
+    <div>
+        <span class="feature-title">{{data?.title}}</span>
+        <!-- <span>AutoComplete is an input component that provides real-time suggestions when being typed.</span> -->
+    </div>
+</div>
 <div class="content-section implementation">
-    <div *ngFor="let img of data?.imgs">
-        <img style="max-width: -webkit-fill-available" src="{{img.src}}">
-      </div>
+    <div *ngFor="let img of data?.imgs" style="text-align: center">
+        <img style="max-width: -webkit-fill-available" src="{{img.src}}" >
+    </div>
+    <div>
+        <a [routerLink]="['/content',type,'1']"> <i class="fa fa-arrow-left" aria-hidden="true"></i> return</a>
+    </div>
+    <ng-adsense 
+        [adClient]="'ca-pub-2651262364281330'"
+        [adSlot]="8634278207"
+        [display]="'inline-block'"
+        [width]="320"
+        [height]="100">
+    </ng-adsense>
 </div>

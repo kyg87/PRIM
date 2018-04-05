@@ -47,7 +47,6 @@ export class InstargallComponent implements OnInit {
       this.totalPage = data.page;
       
       this.onComplete(data);
-      console.log(this.data);
       this.startPageNo = this.getStartPageNo();
       this.endPageNo = this.getEndPageNo();
       for(var i = this.startPageNo; i <= this.endPageNo;i++){
@@ -76,8 +75,8 @@ export class InstargallComponent implements OnInit {
         for(var k = 0; k < data.value[i].imgs.length;k++){
           var temp = {
             source: data.value[i].imgs[k].src,
-            alt : 'desc',
-            title :'title'
+            alt : '',
+            title : data.value[i].instaId
           }
           galleryImages.push(temp);
 
@@ -129,7 +128,6 @@ export class InstargallComponent implements OnInit {
 
   onSelect(menu){
     this.selectMenu = menu;
-    console.log(this.selectMenu);
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="content-section implementation">
-<p-growl [value]="msgs"></p-growl>
+<!-- <p-growl [value]="msgs"></p-growl>
 
 <p-panel header="Godfather I" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
     The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
@@ -43,19 +43,20 @@
   <p-footer>
       Footer content here
   </p-footer>
-</p-panel>
+</p-panel> -->
 
-<h3>Priority</h3>
+<h3>{{type}}</h3>
     <p-table [columns]="cols" [value]="data">
-        <ng-template pTemplate="caption">
+        <!-- <ng-template pTemplate="caption">
             List of data
-        </ng-template>
+        </ng-template> -->
         <ng-template pTemplate="header">
                 <tr>
                     <th style="width: 70%;">
-                        <div style="font-size:1.3em; color:Tomato">
+                        title
+                        <!-- <div style="font-size:1.3em; color:Tomato">
                             <i class="fas fa-tasks"></i>
-                        </div>
+                        </div> -->
                     </th>
                     <th class="ui-p-4">
                         <div style="font-size:1.3em; color:Tomato">
@@ -78,8 +79,8 @@
             </ng-template>
             <ng-template pTemplate="body" let-car style="margin-top: 20px">
                 <tr>
-                    <td><a [routerLink]="['/content','body','1', car._id ]" >{{car.title}}</a></td>
-                    <td class="ui-p-4">{{car.title}}</td>
+                    <td><a [routerLink]="['/content',type,'1', car._id ]" >{{car.title}}</a></td>
+                    <td class="ui-p-4">&#123;&#123;ui-p-4&#125;&#125;</td>
                     <td class="ui-p-5">&#123;&#123;ui-p-5&#125;&#125;</td>
                     <td class="ui-p-6">&#123;&#123;ui-p-6&#125;&#125;</td>
                 </tr>

@@ -52,7 +52,7 @@ export class AppComponent implements OnInit{
     
     onMenuButtonClick(event: Event) {
         this.menuActive = !this.menuActive;
-        event.preventDefault();
+        // event.preventDefault();
     }
     
     closeNotification(event) {
