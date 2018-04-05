@@ -22,6 +22,7 @@ import {GalleriaModule} from '../components/galleria/galleria';
 import { BodygallComponent } from './bodygall/bodygall.component';
 
 import { PanelModule } from '../components/panel/panel';
+import { PaginatorModule } from '../components/paginator/paginator';
 import {GrowlModule} from '../components/growl/growl';
 import {SplitButtonModule} from '../components/splitbutton/splitbutton';
 import {TableModule} from '../components/table/table';
@@ -51,13 +52,14 @@ import { AdsenseModule } from 'ng2-adsense';
     GrowlModule,
     SplitButtonModule,
     TableModule,
+    PaginatorModule,
     AdsenseModule.forRoot({
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,
     }),
   ],
   providers: [
-      { provide: LocationStrategy, useClass: HashLocationStrategy },
+      // { provide: LocationStrategy, useClass: HashLocationStrategy },
       CarService,CountryService,EventService,NodeService
   ],
   bootstrap: [AppComponent]

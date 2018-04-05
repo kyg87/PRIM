@@ -9,125 +9,87 @@ import { Parser } from '@angular/compiler/src/ml_parser/parser';
 import {Car} from '../../components/domain/car';
 import {CarService} from '../../service/carservice';
 import {SelectItem} from '../../../components/common/api';
-
+import { ViewChild } from '@angular/core';
+import { Paginator } from '../../../components/paginator/paginator';
 @Component({
   selector: 'app-instargall',
   templateUrl: './instargall.component.html',
   styleUrls: ['./instargall.component.css']
 })
 export class InstargallComponent implements OnInit {
-  id : any;
-  selectMenu: any;
-  data : any;
 
-  page : number;
-  totalPage : number;
+  @ViewChild('p') paginator: Paginator;
+  sortOptions: SelectItem[] = new Array();
+  sortKey: string;
+  data: any;
+  page: number;
+  total: any;
 
-  startPageNo : number;
-  endPageNo : number;
-
-  pages : number[] = [];
-  
   constructor(
     private carService: CarService,
-    private humorService : HumorService,
-    private route : ActivatedRoute,
-    private location : Location,
-    private router : Router) { }
-
-  ngOnInit() {
-
-    var page = this.route.snapshot.paramMap.get('page');
-
-    if(page != null) {
-      this.page = parseInt(page);
-    }
-
-    this.humorService.getInstars('page',50).subscribe(data=>{
-      this.totalPage = data.page;
-      
-      this.onComplete(data);
-      this.startPageNo = this.getStartPageNo();
-      this.endPageNo = this.getEndPageNo();
-      for(var i = this.startPageNo; i <= this.endPageNo;i++){
-        this.pages.push(i);
+    private humorService: HumorService,
+    private route: ActivatedRoute,
+    private location: Location,
+    private router: Router) {
+    this.humorService.getInstaList().subscribe(data => {
+      for (var i = 0; i < data.length; i++) {
+        var temp = { label: data[i].instaId, value: data[i].instaId };
+        this.sortOptions.push(temp);
       }
     })
-
-    this.router.routeReuseStrategy.shouldReuseRoute = function(){
-      return false;
-   }
-   
-    this.router.events.subscribe((evt) => {
-
-      // trick the Router into believing it's last link wasn't previously loaded
-      this.router.navigated = false;
-      // if you need to scroll back to top, here is the right place
-      window.scrollTo(0, 0);
-
-    });
   }
-  onComplete(data){
-    
-    for(var i = 0 ; i < data.value.length;i++){
-      if(data.value[i].mp4 == ''){
+
+  ngOnInit() {
+    this.init(this.sortKey, 1);
+  }
+  init(type, page) {
+    if (type == undefined) {
+      this.humorService.getInstars(page, 4).subscribe(data => {
+
+        this.onComplete(data);
+
+      })
+    }
+    else {
+      this.humorService.getInstar(type, page, 4).subscribe(data => {
+        this.onComplete(data);
+      })
+    }
+  }
+
+  onComplete(data) {
+
+    for (var i = 0; i < data.value.length; i++) {
+      if (data.value[i].mp4 == '') {
         var galleryImages = [];
-        for(var k = 0; k < data.value[i].imgs.length;k++){
+        for (var k = 0; k < data.value[i].imgs.length; k++) {
           var temp = {
             source: data.value[i].imgs[k].src,
-            alt : '',
-            title : data.value[i].instaId
+            alt: '',
+            title: data.value[i].instaId
           }
           galleryImages.push(temp);
 
         }
         data.value[i].galleryImages = galleryImages;
       }
-      
+
     }
+    this.total = data.page * 4;
+    this.data = data;
+  }
+
+  paginate(event) {
+    this.init(this.sortKey, event.page + 1);
+  }
   
-    this.data = data.value;
+  onSortChange(event) {
+    let value = event.value;
+    this.humorService.getInstar(value, 1, 4).subscribe(data => {
+      this.paginator.first = 0;
+      this.onComplete(data);
+    })
   }
 
-  getCurrentPageGroup(){
-
-    let pageGroupCount = 10;
-    let currentPageGroup;
-
-    if(this.page % pageGroupCount!=0){
-      currentPageGroup = (this.page/pageGroupCount) + 1;
-    }else{
-      currentPageGroup = this.page/pageGroupCount;
-    }
-
-
-    return parseInt( currentPageGroup);
-  }
-
-  getStartPageNo(){
-
-    let startPageNo = 10 * (this.getCurrentPageGroup()-1) + 1
-
-    return startPageNo;
-
-  }
-
-  getEndPageNo(){
-    let endPageNo = 10 * this.getCurrentPageGroup();
-
-    if(endPageNo > this.totalPage){
-      endPageNo = this.totalPage;
-    }
-    return endPageNo;
-  }
-
-  changeRoute(page){
-    this.router.navigateByUrl('/humorboard/'+page);
-
-  }
-
-  onSelect(menu){
-    this.selectMenu = menu;
-  }
 
 }

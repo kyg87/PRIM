@@ -1,32 +1,43 @@
 
-  <p-dataView [value]="data" [paginator]="true" [rows]="6" >
-      <ng-template  let-instar pTemplate="listItem"  >
-          <p-card *ngIf="instar?.imgs.length != 0;else content" title="{{instar.title}}" subtitle="{{instar.videoLink}}" [style]="{width: '360px', 'text-align': 'center', padding: '2px' }" styleClass="ui-card-shadow">
-              <p-header >
-                    <p-galleria  [images]="instar?.galleryImages"  panelWidth="100%" panelHeight="300" [showCaption]="true"></p-galleria> 
-              </p-header>
-          
-              <p-footer>
-                  <a href="{{instar.videoLink}}"><button pButton type="button" label="Save" icon="fa-check"></button></a>
-                  <button pButton type="button" label="Cancel" icon="fa-close" class="ui-button-secondary"></button>
-              </p-footer>
-          </p-card>
-  
-          <ng-template #content>
-              <p-card title="{{instar.title}}" subtitle="{{instar.videoLink}}" [style]="{width: '360px', 'text-align': 'center', padding: '2px' }" styleClass="ui-card-shadow">
-                  <p-header >
-                      <video  src="{{instar.mp4}}" controls style="width:100%"></video>
-                    
-                  </p-header>
-                  <p-footer>
-                      <a href="{{instar.videoLink}}"><button pButton type="button" label="Save" icon="fa-check"></button></a>
-                      <button pButton type="button" label="Cancel" icon="fa-close" class="ui-button-secondary"></button>
-                  </p-footer>
-              </p-card>
-            </ng-template> 
-      </ng-template>
+  <div class="content-section implementation"></div>
+
+  <p-dataView [value]="data?.value"  [rows]="4" >
+    <p-header>
+        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false"
+            [style]="{'min-width':'15em'}"></p-dropdown>
+    </p-header>
+    <ng-template let-instar pTemplate="listItem">
+        <p-card *ngIf="instar?.imgs.length != 0;else content" title="{{instar.title}}" subtitle="{{instar.videoLink}}" [style]="{width: '360px', 'text-align': 'center', padding: '2px' }"
+            styleClass="ui-card-shadow">
+            <p-header>
+                <p-galleria [images]="instar?.galleryImages" panelWidth="100%" panelHeight="300" [showCaption]="true"></p-galleria>
+            </p-header>
+    
+            <p-footer>
+                <a href="{{instar.videoLink}}">
+                    <button pButton type="button" label="Link" icon="fa-link"></button>
+                </a>
+            </p-footer>
+        </p-card>
+    
+        <ng-template #content>
+            <p-card title="{{instar.title}}" subtitle="{{instar.videoLink}}" [style]="{width: '360px', 'text-align': 'center', padding: '2px' }"
+                styleClass="ui-card-shadow">
+                <p-header>
+                    <video src="{{instar.mp4}}" controls style="width:100%"></video>
+    
+                </p-header>
+                <p-footer>
+                    <a href="{{instar.videoLink}}">
+                        <button pButton type="button" label="Link" icon="fa-link"></button>
+                    </a>
+                </p-footer>
+            </p-card>
+        </ng-template>
+    </ng-template>
     </p-dataView>
-  
+    <p-paginator [rows]="4" [totalRecords]=total (onPageChange)="paginate($event)" #p></p-paginator>
+   
     
       <!-- <video *ngIf="car?.mp4 !='';else content" src="{{car.mp4}}" controls style="width:100%"></video>
       <ng-template #content>

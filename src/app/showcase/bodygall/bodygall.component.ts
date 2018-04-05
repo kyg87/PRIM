@@ -10,21 +10,30 @@ export class BodygallComponent implements OnInit {
   data : any;
   type : any;
   cols: any[];
+  total : any;
   constructor(
     private humorService : HumorService,
     private route : ActivatedRoute
   ) {
-    const type = this.route.snapshot.paramMap.get('type');
-    if (type == 'star') {
-      this.humorService.getHumors('page', 10).subscribe(data => {
+    this.type = this.route.snapshot.paramMap.get('type');
+    this.init(1);
+  }
+
+  init(page){
+    if (this.type == 'star') {
+      this.humorService.getHumors(page, 10).subscribe(data => {
         this.type = 'star';
-        this.data = data.value;
+        this.data = data;
+        console.log(this.data)
+        this.total = data.page * 10;
       })
     }
-    else if (type == 'body') {
-      this.humorService.getBodyGalls('page', 10).subscribe(data => {
+    else if (this.type == 'body') {
+      this.humorService.getBodyGalls(page, 10).subscribe(data => {
         this.type = 'body';
-        this.data = data.value;
+        this.data = data;
+        console.log(this.data)
+        this.total = data.page * 10;
       })
     }
   }
@@ -37,5 +46,13 @@ export class BodygallComponent implements OnInit {
       { field: 'color', header: 'Color' }
   ];
   }
+  paginate(event) {
+    //event.first = Index of the first record
+    //event.rows = Number of rows to display in new page
+    //event.page = Index of the new page
+    //event.pageCount = Total number of pages
+    console.log(event)
+    this.init(event.page + 1);
+}
 
 }

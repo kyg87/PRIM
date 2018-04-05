@@ -32,6 +32,15 @@ export class HumorService{
         return this.http.get('https://motherbirds.com/api/he_le_n_?page='+page + '&size='+ size)
         .map(res=>res.json());
     }
+    getInstaList(){
+        return this.http.get('https://motherbirds.com/api/instalist')
+        .map(res=>res.json());
+    }
+
+    getInstar(instaId, page ,size){
+        return this.http.get('https://motherbirds.com/api/he_le_n_/'+instaId+'?page='+ page +'&size=' + size)
+        .map(res=>res.json());
+    }
 
     // addBoard(newBoard){
     //     var headers = new Headers();
