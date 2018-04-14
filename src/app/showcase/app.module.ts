@@ -36,6 +36,19 @@ import { LoginComponent } from './login/login.component';
 
 import { UserService } from './user.service';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("162668791075308")
+  }
+]);
 
 export function getAuthHttp(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -81,6 +94,7 @@ export function getAuthHttp(http: Http) {
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,
     }),
+    SocialLoginModule.initialize(config)
   ],
   providers: [
       // { provide: LocationStrategy, useClass: HashLocationStrategy },
