@@ -23,7 +23,6 @@ export class BodygallComponent implements OnInit {
   ) {
     this.type = this.route.snapshot.paramMap.get('type');
     this.page = this.route.snapshot.paramMap.get('page');
-    console.log(this.page)
     this.init(this.page);
   }
 

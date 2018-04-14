@@ -9,7 +9,7 @@
             <img alt="logo" src="assets/showcase/images/motherbirds-logo (7).png" />
         </a>
 
-        <!-- <ul class="topbar-menu">
+        <ul class="topbar-menu">
             <li>
                 <a href="#" [routerLink]="['/setup']">GET STARTED</a>
             </li>
@@ -53,12 +53,12 @@
             <li>
                 <a [routerLink]="['/support']">SUPPORT</a>
             </li>
-        </ul> -->
+        </ul>
     </div>
 
     <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
         <div class="layout-menu">
-            <!-- <a id="menu_input" #inputmenutitle [class.active-menuitem]="inputmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === inputmenutitle.id ? null : inputmenutitle.id)">
+            <a id="menu_input" #inputmenutitle [class.active-menuitem]="inputmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === inputmenutitle.id ? null : inputmenutitle.id)">
                 <img src="assets/showcase/images/icons/input-active.svg" class="layout-menu-icon-active"/>
                 <img src="assets/showcase/images/icons/input.svg" class="layout-menu-icon-inactive"/>
                 <span>Input</span>
@@ -243,7 +243,7 @@
                 <a [routerLink]="['/progressspinner']" (click)="menuActive = false">&#9679; ProgressSpinner</a>
                 <a [routerLink]="['/codehighlighter']" (click)="menuActive = false">&#9679; CodeHighlighter</a>
                 <a [routerLink]="['/terminal']" (click)="menuActive = false">&#9679; Terminal</a>
-            </div> -->
+            </div>
             <a id="menu_instar" #instartitle [class.active-menuitem]="instartitle.id == activeMenuId"
                     (click)="activeMenuId = (activeMenuId === instartitle.id ? null : instartitle.id)">
                     <img src="assets/showcase/images/icons/misc-active.svg" class="layout-menu-icon-active"/>
@@ -254,6 +254,8 @@
                 <a [routerLink]="['/instagall']" (click)="menuActive = false">&#9679; instarGalleria</a>
                 <a [routerLink]="['/content', 'body', 1 ]" (click)="menuActive = false">&#9679; bodyGalleria</a>
                 <a [routerLink]="['/content', 'star', 1 ]" (click)="menuActive = false">&#9679; starGalleria</a>
+                <a [routerLink]="['/blogging']" (click)="menuActive = false">&#9679; blogging</a>
+                <a [routerLink]="['/login']" (click)="menuActive = false">&#9679; login</a>
             </div>
         </div>
     </div>
@@ -269,7 +271,7 @@
         <div class="content-section layout-footer clearfix" style="text-align: center">
             <ng-adsense 
             [adClient]="'ca-pub-2651262364281330'"
-            [adSlot]="8634278207"
+            [adSlot]="3840352211"
             [display]="'inline-block'"
             [width]="320"
             [height]="100">

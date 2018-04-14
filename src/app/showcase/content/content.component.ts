@@ -18,7 +18,6 @@ export class ContentComponent implements OnInit {
     this.type = this.route.snapshot.paramMap.get('type');
     this.page = this.route.snapshot.paramMap.get('page');
     const id = this.route.snapshot.paramMap.get('id');
-
     if (this.type == 'star') {
       humorService.getHumor(id).subscribe(data => {
         this.data = data;

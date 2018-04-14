@@ -1,0 +1,9 @@
+<div class="content-section implementation">
+<p>
+  blogging works!
+  <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+</p>
+<p>Value: {{text||json}}</p>
+<button pButton type="button" label="Clear" icon="fa-close" (click)="text=null"></button>
+
+</div>

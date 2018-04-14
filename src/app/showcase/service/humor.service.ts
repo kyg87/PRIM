@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HumorService{
     constructor(private http:Http){
-        console.log('Humor Service');
     }
 
     getHumors(page ,size){
@@ -39,6 +38,11 @@ export class HumorService{
 
     getInstar(instaId, page ,size){
         return this.http.get('https://motherbirds.com/api/he_le_n_/'+instaId+'?page='+ page +'&size=' + size)
+        .map(res=>res.json());
+    }
+
+    getAvSearch(cid){
+        return this.http.get('https://motherbirds.com/api/av?cid='+ cid)
         .map(res=>res.json());
     }
 

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger,state,style,transition,animate} from '@angular/animations';
 import { HumorService } from './service/humor.service';
+import { Location } from '@angular/common';
+import { UserService } from './user.service';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ HumorService ],
+  providers: [ HumorService, UserService ],
   animations: [
       trigger('overlayState', [
           state('hidden', style({
@@ -39,7 +42,11 @@ export class AppComponent implements OnInit{
     activeMenuId: string;
     
     notification: boolean = false;
-    
+    constructor(
+        private location : Location,
+      ){
+
+      }
     ngOnInit() {
       setTimeout(()=>this.notification = true , 1000)
     }
@@ -52,7 +59,7 @@ export class AppComponent implements OnInit{
     
     onMenuButtonClick(event: Event) {
         this.menuActive = !this.menuActive;
-        // event.preventDefault();
+        event.preventDefault();
     }
     
     closeNotification(event) {
