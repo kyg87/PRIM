@@ -186,7 +186,7 @@ body {
     position: fixed;
     left: 0;
     top: 70px;
-    height: calc(100% - 70px);
+    height: calc(100% - 100px);
     background-color: #ffffff;
     overflow-x: hidden;
     overflow-y: auto;
@@ -606,7 +606,7 @@ body {
     }
 
     #layout-sidebar {
-        top: 70px;
+        top: 100px;
         left: -300px;
         transition: left .3s;
         z-index: 9999;
@@ -618,8 +618,7 @@ body {
 
     #layout-content {
         margin-left: 0;
-        /* padding-top: 100px; */
-        padding-top: 50px;
+        padding-top: 100px;
         
     }
 

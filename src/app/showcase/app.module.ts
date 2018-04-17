@@ -35,14 +35,16 @@ import { CodeHighlighterModule } from '../components/codehighlighter/codehighlig
 import { LoginComponent } from './login/login.component';
 
 import { UserService } from './user.service';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 
+export function getAuthServiceConfigs(){
+  
+}
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider("263291575940-76n9mer2gvr59tc1n77a4uru5l7nfk24.apps.googleusercontent.com")
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
@@ -50,14 +52,8 @@ let config = new AuthServiceConfig([
   }
 ]);
 
-export function getAuthHttp(http: Http) {
-  return new AuthHttp(new AuthConfig({
-    headerName: 'x-auth-token',
-    noTokenScheme: true,
-    noJwtError: true,
-    globalHeaders: [{'Accept': 'application/json'}],
-    tokenGetter: (() => localStorage.getItem('id_token')),
-  }), http);
+export function provideConfig() {
+  return config;
 }
 
 
@@ -94,16 +90,14 @@ export function getAuthHttp(http: Http) {
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,
     }),
-    SocialLoginModule.initialize(config)
+    SocialLoginModule
   ],
   providers: [
       // { provide: LocationStrategy, useClass: HashLocationStrategy },
       CarService,CountryService,EventService,NodeService,
-      UserService,
       {
-        provide: AuthHttp,
-        useFactory: getAuthHttp,
-        deps: [Http]
+        provide: AuthServiceConfig,
+        useFactory: provideConfig,
       }
   ],
   bootstrap: [AppComponent]
