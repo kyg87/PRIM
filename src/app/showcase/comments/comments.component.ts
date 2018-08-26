@@ -72,7 +72,8 @@ export class CommentsComponent implements OnInit {
   }
 
  showSuccess(){
-   this.toastr.success('sss','ss');
+   this.toastr.success('message','title');
+   
  }
 
 

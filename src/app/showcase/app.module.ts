@@ -97,7 +97,11 @@ export function provideConfig() {
       adSlot: 4461430600,
     }),
     SocialLoginModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [
       // { provide: LocationStrategy, useClass: HashLocationStrategy },
