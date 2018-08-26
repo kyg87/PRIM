@@ -7,7 +7,8 @@ import { ContentComponent } from './content/content.component';
 import { AvSearchComponent } from './av-search/av-search.component';
 import { BloggingComponent } from './blogging/blogging.component';
 import { LoginComponent } from './login/login.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
     imports: [
@@ -104,6 +105,8 @@ import { LoginComponent } from './login/login.component';
             {path: 'content/:type/:page/:id', component: ContentComponent},
             {path: 'blogging', component: BloggingComponent},
             {path: 'login', component: LoginComponent},
+            {path: 'signup', component: SignupComponent},
+            {path: 'comments', component: CommentsComponent},
         ])    
     ],
     exports: [RouterModule]

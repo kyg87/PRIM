@@ -16,20 +16,20 @@ import { EventService } from './service/eventservice';
 import { NodeService } from './service/nodeservice';
 import { InstargallComponent } from './components/instargall/instargall.component';
 import { DataViewModule } from '../components/dataview/dataview';
-import {CardModule} from '../components/card/card';
-import {ButtonModule} from '../components/button/button';
-import {GalleriaModule} from '../components/galleria/galleria';
+import { CardModule} from '../components/card/card';
+import { ButtonModule} from '../components/button/button';
+import { GalleriaModule} from '../components/galleria/galleria';
 import { BodygallComponent } from './bodygall/bodygall.component';
 
 import { PanelModule } from '../components/panel/panel';
 import { PaginatorModule } from '../components/paginator/paginator';
-import {GrowlModule} from '../components/growl/growl';
-import {SplitButtonModule} from '../components/splitbutton/splitbutton';
-import {TableModule} from '../components/table/table';
+import { GrowlModule} from '../components/growl/growl';
+import { SplitButtonModule} from '../components/splitbutton/splitbutton';
+import { TableModule} from '../components/table/table';
 import { ContentComponent } from './content/content.component';
 import { AdsenseModule } from 'ng2-adsense';
 import { AvSearchComponent } from './av-search/av-search.component';
-import {EditorModule} from '../components/editor/editor';
+import { EditorModule} from '../components/editor/editor';
 import { BloggingComponent } from './blogging/blogging.component';
 import { CodeHighlighterModule } from '../components/codehighlighter/codehighlighter';
 import { LoginComponent } from './login/login.component';
@@ -37,6 +37,10 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
+
+import { SignupComponent } from './signup/signup.component';
+import { CommentsComponent } from './comments/comments.component';
+import { ToastrModule } from 'ngx-toastr';
 
 export function getAuthServiceConfigs(){
   
@@ -66,7 +70,9 @@ export function provideConfig() {
     ContentComponent,
     AvSearchComponent,
     BloggingComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +96,8 @@ export function provideConfig() {
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,
     }),
-    SocialLoginModule
+    SocialLoginModule,
+    ToastrModule.forRoot()
   ],
   providers: [
       // { provide: LocationStrategy, useClass: HashLocationStrategy },
