@@ -39,31 +39,27 @@ export class HumorService{
     }
 
     getInstars(page ,size){
-        return this.http.get('https://motherbirds.com/api/he_le_n_?page='+page + '&size='+ size)
-        .
+        return this.http.get('https://motherbirds.com/api/he_le_n_?page='+page + '&size='+ size).
         pipe(
             map(res=>res.json())
         )
     }
     getInstaList(){
-        return this.http.get('https://motherbirds.com/api/instalist')
-        .
+        return this.http.get('https://motherbirds.com/api/instalist').
         pipe(
             map(res=>res.json())
         )
     }
 
     getInstar(instaId, page ,size){
-        return this.http.get('https://motherbirds.com/api/he_le_n_/'+instaId+'?page='+ page +'&size=' + size)
-        .
+        return this.http.get('https://motherbirds.com/api/he_le_n_/'+instaId+'?page='+ page +'&size=' + size).
         pipe(
             map(res=>res.json())
         )
     }
 
     getAvSearch(cid){
-        return this.http.get('https://motherbirds.com/api/av?cid='+ cid)
-        .
+        return this.http.get('https://motherbirds.com/api/av?cid='+ cid).
         pipe(
             map(res=>res.json())
         )
@@ -87,6 +83,32 @@ export class HumorService{
 
         headers.append('Content-Type', 'application/json');
         return this.http.post('https://motherbirds.com/api/comments',JSON.stringify(newBoard),{headers :headers}).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getboards(type,page){
+
+        return this.http.get('https://motherbirds.com/api/board?type='+ type + '&page=' + (page - 1) * 10 )
+        .
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getboard(id){
+        return this.http.get('https://motherbirds.com/api/board/'+id).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    addboard(newBoard){
+        var headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('https://motherbirds.com/api/board',JSON.stringify(newBoard),{headers :headers}).
         pipe(
             map(res=>res.json())
         )

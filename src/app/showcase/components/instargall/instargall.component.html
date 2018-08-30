@@ -6,6 +6,7 @@
         <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false"
             [style]="{'min-width':'15em'}"></p-dropdown>
     </p-header>
+
     <ng-template let-instar pTemplate="listItem">
         <p-card *ngIf="instar?.imgs.length != 0;else content" title="{{instar.title}}" subtitle="{{instar.videoLink}}" [style]="{width: '360px', 'text-align': 'center', padding: '2px' }"
             styleClass="ui-card-shadow">

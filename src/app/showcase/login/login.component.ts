@@ -12,6 +12,7 @@ import { SocialUser } from "angular4-social-login";
 })
 export class LoginComponent implements OnInit {
 
+  
   public user: SocialUser;
   public loggedIn: boolean;
 

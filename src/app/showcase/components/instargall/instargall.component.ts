@@ -58,7 +58,7 @@ export class InstargallComponent implements OnInit {
   }
 
   onComplete(data) {
-
+    console.log(data);
     for (var i = 0; i < data.value.length; i++) {
       if (data.value[i].mp4 == '') {
         var galleryImages = [];

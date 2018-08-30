@@ -1,9 +1,12 @@
 <div class="content-section implementation">
-<p>
-  blogging works!
-  <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
-</p>
-<p>Value: {{text|json}}</p>
-<button pButton type="button" label="Clear" icon="fa-close" (click)="text=null"></button>
+  <h3 class="first">Title</h3>
+  <input type="text" pInputText [(ngModel)]="title" />
+  <p>
+    blogging works!
+    <p-editor [(ngModel)]="content" [style]="{'height':'320px'}"></p-editor>
+  </p>
+  <p>Value: {{content|json}}</p>
+  <button pButton type="button" label="Clear" icon="fa-close" (click)="addBoard()" style="float: right;"></button>
 
 </div>
+

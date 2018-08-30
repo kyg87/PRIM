@@ -25,19 +25,26 @@
         <textarea style="width: 100%" rows="5" cols="30" pInputTextarea placeholder="add comment" [(ngModel)]="comment"></textarea>
       </div>
     </div>
+
   </div>
-  <p-button label="Click" style="float: right" (click) = 'addComment()'></p-button>
-  
+  <div class="ui-g" style="margin-bottom: 5px; display: block" >
+    <p-button label="Click" style="float: right" (click)='addComment()'></p-button>
+  </div>
+
 
   <ul id="comments-list" class="comments-list">
-    <li *ngFor = "let reply of data">
+    <li *ngFor="let reply of data">
       <div class="comment-main-level">
         <!-- Avatar -->
-        <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+        <div class="comment-avatar">
+          <img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt="">
+        </div>
         <!-- Contenedor del Comentario -->
         <div class="comment-box">
           <div class="comment-head">
-            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">{{reply.name}}</a></h6>
+            <h6 class="comment-name by-author">
+              <a href="http://creaticode.com/blog">{{reply.name}}</a>
+            </h6>
             <span>{{reply.CREATE_DT}}</span>
             <i class="fa fa-reply"></i>
             <i class="fa fa-heart"></i>
@@ -47,6 +54,6 @@
           </div>
         </div>
       </div>
-     </li>
+    </li>
   </ul>
 </div>
