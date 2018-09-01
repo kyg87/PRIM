@@ -9,6 +9,10 @@ import { BloggingComponent } from './blogging/blogging.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CommentsComponent } from './comments/comments.component';
+import { SysProgramComponent } from './sys-program/sys-program.component';
+import { BlogComponent } from './blog/blog.component';
+import { P5Component } from './p5/p5.component';
+import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
 
 @NgModule({
     imports: [
@@ -107,6 +111,10 @@ import { CommentsComponent } from './comments/comments.component';
             {path: 'login', component: LoginComponent},
             {path: 'signup', component: SignupComponent},
             {path: 'comments', component: CommentsComponent},
+            {path: 'sysProgram', component: SysProgramComponent},
+            {path: 'blog', component: BlogComponent},
+            {path: 'p5', component: P5Component},
+            {path: 'barChart', component: BarChartComponent},
         ])    
     ],
     exports: [RouterModule]

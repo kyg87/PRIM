@@ -41,7 +41,11 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-logi
 import { SignupComponent } from './signup/signup.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { SysProgramComponent } from './sys-program/sys-program.component';
+import { TreeModule } from '../components/tree/tree';
+import { BlogComponent } from './blog/blog.component';
+import { P5Component } from './p5/p5.component';
+import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
 export function getAuthServiceConfigs(){
   
 }
@@ -72,7 +76,11 @@ export function provideConfig() {
     BloggingComponent,
     LoginComponent,
     SignupComponent,
-    CommentsComponent
+    CommentsComponent,
+    SysProgramComponent,
+    BlogComponent,
+    P5Component,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +99,9 @@ export function provideConfig() {
     SplitButtonModule,
     TableModule,
     PaginatorModule,
+    TreeModule,
     EditorModule,
+    CodeHighlighterModule,
     AdsenseModule.forRoot({
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,

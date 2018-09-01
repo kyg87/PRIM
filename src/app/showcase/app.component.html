@@ -73,6 +73,20 @@
                 <a [routerLink]="['/signup']" (click)="menuActive = false">&#9679; signup</a>
                 <a [routerLink]="['/comments']" (click)="menuActive = false">&#9679; comments</a>
             </div>
+
+            <a id="menu_admin" #admintitle [class.active-menuitem]="admintitle.id == activeMenuId"
+                    (click)="activeMenuId = (activeMenuId === admintitle.id ? null : admintitle.id)">
+                    <img src="assets/showcase/images/icons/misc-active.svg" class="layout-menu-icon-active"/>
+                    <img src="assets/showcase/images/icons/misc.svg" class="layout-menu-icon-inactive"/>
+                    <span>Admin</span>
+            </a>
+            <div [ngClass]="{'submenushow': (admintitle.id == activeMenuId), 'submenuhide': (admintitle.id != activeMenuId)}">
+   
+                <a [routerLink]="['/sysProgram']" (click)="menuActive = false">&#9679; sysProgram</a>
+                <a [routerLink]="['/blog']" (click)="menuActive = false">&#9679; blog</a>
+                <a [routerLink]="['/p5']" (click)="menuActive = false">&#9679; p5</a>
+                <a [routerLink]="['/barChart']" (click)="menuActive = false">&#9679; barChart</a>
+            </div>
         </div>
     </div>
 

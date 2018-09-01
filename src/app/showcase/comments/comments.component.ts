@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { MessageService } from '../../components/common/messageservice';
 import { HumorService } from '../service/humor.service';
 
