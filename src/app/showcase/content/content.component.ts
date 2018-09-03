@@ -31,7 +31,7 @@ export class ContentComponent implements OnInit {
     console.log(id);
 
     if (this.type == 'star') {
-      humorService.getHumor(id).subscribe(data => {
+      humorService.getStar(id).subscribe(data => {
         console.log(data)
         this.data = data;
         this.commentsComponent.onInit(id);
@@ -41,6 +41,13 @@ export class ContentComponent implements OnInit {
       humorService.getBodyGall(id).subscribe(data => {
         this.data = data;
         this.commentsComponent.onInit(id);
+      });
+    }
+    else if (this.type == 'humor') {
+      humorService.getHumor(id).subscribe(data => {
+        this.data = data;
+        this.commentsComponent.onInit(id);
+        console.log(this.data)
       });
     }
     else{

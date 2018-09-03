@@ -51,9 +51,23 @@ export class CommentsComponent implements OnInit {
   }
   addComment(){
 
+    if(this.name == undefined ||
+      this.name ==''){
+        this.showError('name required');
+        return;
+    }
     if(this.password == undefined || 
         this.password == ''){
-  
+          
+        this.showError('password required');
+        return;
+    }
+
+    if(this.comment == undefined || 
+      this.comment == ''){
+        
+      this.showError('comment required');
+      return;
     }
     this.showSuccess();
     var board = {
@@ -72,8 +86,12 @@ export class CommentsComponent implements OnInit {
   }
 
  showSuccess(){
-   this.toastr.success('message','title');
+   this.toastr.success('add comment');
    
+ }
+ 
+ showError(message){
+   this.toastr.error(message)
  }
 
 

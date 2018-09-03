@@ -33,7 +33,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-car style="margin-top: 20px">
                 <tr>
-                    <td><a [routerLink]="['/content',type, page, car._id ]" >{{car.title}}</a></td>
+                    <td><i style="color: red" class="fas fa-paper-plane" *ngIf= "car.today == true"></i> <a [routerLink]="['/content',type, page, car._id ]" >{{car.title}}</a></td>
                     <td class="ui-p-4">&#123;&#123;ui-p-4&#125;&#125;</td>
                     <td class="ui-p-5">&#123;&#123;ui-p-5&#125;&#125;</td>
                     <td class="ui-p-6">&#123;&#123;ui-p-6&#125;&#125;</td>

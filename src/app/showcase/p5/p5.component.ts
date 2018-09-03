@@ -20,7 +20,7 @@ export class P5Component implements OnInit {
   private sketch(p: any) {
 
     var stars =[];
-    var speed;
+    var speed = 1;
     p.setup = () => {
 
       var canvas =  p.createCanvas(700, 600);

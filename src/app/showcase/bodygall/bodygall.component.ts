@@ -27,22 +27,66 @@ export class BodygallComponent implements OnInit {
   }
 
   init(page){
+    var today = new Date();
+    
     if (this.type == 'star') {
-      this.humorService.getHumors(page, 10).subscribe(data => {
+      this.humorService.getStars(page, 10).subscribe(data => {
+        for(var item of data.value){
+          if(item.create_dt != undefined && formatDate(today) == item.create_dt.substring(0, 10)){
+            item.today = true;
+          }
+        }
+
         this.type = 'star';
         this.data = data;
         this.total = data.page * 10;
+
         this.onComplete(page);
       })
     }
     else if (this.type == 'body') {
       this.humorService.getBodyGalls(page, 10).subscribe(data => {
+        for(var item of data.value){
+          if(item.create_dt != undefined && formatDate(today) == item.create_dt.substring(0, 10)){
+            item.today = true;
+          }
+        }
+
         this.type = 'body';
         this.data = data;
         this.total = data.page * 10;
+
         this.onComplete(page);
       })
     }
+    else if (this.type == 'humor') {
+      this.humorService.getHumors(page, 10).subscribe(data => {
+        
+        for(var item of data.value){
+          if(item.create_dt != undefined && formatDate(today) == item.create_dt.substring(0, 10)){
+            item.today = true;
+          }
+        }
+
+        this.type = 'humor';
+        this.data = data;
+        this.total = data.page * 10;
+
+        this.onComplete(page);
+      })
+    }
+
+    function formatDate(date) {
+      var d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+  
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+  
+      return [year, month, day].join('-');
+  }
   }
   onComplete(page){
     this.paginator.first = (page-1) * 10;

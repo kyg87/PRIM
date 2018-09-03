@@ -19,7 +19,7 @@ var map;
 </pre> -->
 
  
-<ng-template [ngIf]="type == 'star' || type == 'body'" [ngIfElse]="loggedOut">
+<ng-template [ngIf]="type == 'star' || type == 'body'|| type == 'humor'" [ngIfElse]="loggedOut">
     <div class="content-section implementation">
         <div *ngFor="let img of data?.imgs" style="text-align: center">
             <img style="max-width: -webkit-fill-available" src="{{img.src}}">

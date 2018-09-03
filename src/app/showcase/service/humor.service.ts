@@ -9,7 +9,7 @@ export class HumorService{
     constructor(private http:Http){
     }
 
-    getHumors(page ,size){
+    getStars(page ,size){
         return this.http.get('https://motherbirds.com/api/star?page='+page + '&size='+ size).
         pipe(
             map(res=>res.json())
@@ -17,8 +17,23 @@ export class HumorService{
            
     }
 
-    getHumor(id){
+    getStar(id){
         return this.http.get('https://motherbirds.com/api/star/'+id).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getHumors(page ,size){
+        return this.http.get('https://motherbirds.com/api/humor?page='+page + '&size='+ size).
+        pipe(
+            map(res=>res.json())
+        )
+           
+    }
+
+    getHumor(id){
+        return this.http.get('https://motherbirds.com/api/humor/'+id).
         pipe(
             map(res=>res.json())
         )
