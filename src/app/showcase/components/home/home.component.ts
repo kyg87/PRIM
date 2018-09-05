@@ -39,9 +39,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition( (pos)=>{
-      this.makeMap(pos);
-    }, this.error);
+    // navigator.geolocation.getCurrentPosition( (pos)=>{
+    //   this.makeMap(pos);
+    // }, this.error);
     
   }
 

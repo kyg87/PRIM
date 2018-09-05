@@ -13,7 +13,7 @@ import { SysProgramComponent } from './sys-program/sys-program.component';
 import { BlogComponent } from './blog/blog.component';
 import { P5Component } from './p5/p5.component';
 import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
-
+import { Home1Component } from './home1/home1.component';
 @NgModule({
     imports: [
         RouterModule.forRoot([
@@ -115,6 +115,7 @@ import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
             {path: 'blog', component: BlogComponent},
             {path: 'p5', component: P5Component},
             {path: 'barChart', component: BarChartComponent},
+            {path: 'home1', component: Home1Component},
         ])    
     ],
     exports: [RouterModule]

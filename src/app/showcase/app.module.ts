@@ -46,6 +46,7 @@ import { TreeModule } from '../components/tree/tree';
 import { BlogComponent } from './blog/blog.component';
 import { P5Component } from './p5/p5.component';
 import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
+import { Home1Component } from './home1/home1.component';
 export function getAuthServiceConfigs(){
   
 }
@@ -80,7 +81,8 @@ export function provideConfig() {
     SysProgramComponent,
     BlogComponent,
     P5Component,
-    BarChartComponent
+    BarChartComponent,
+    Home1Component
   ],
   imports: [
     BrowserModule,

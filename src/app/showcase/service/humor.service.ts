@@ -128,4 +128,23 @@ export class HumorService{
             map(res=>res.json())
         )
     }
+
+    getSiteEnter(ip){
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('https://motherbirds.com/api/getNaverRank',JSON.stringify(ip),{headers :headers}).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getNaverRank(){
+
+        return this.http.get('https://motherbirds.com/api/getNaverRank').
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    
 }

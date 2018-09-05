@@ -251,7 +251,7 @@ body {
 /** =====================
 * Responsive
 ========================*/
-@media only screen and (max-width: 766px) {
+/* @media only screen and (max-width: 766px) {
    .comments-container {
        width: 480px;
    }
@@ -263,4 +263,4 @@ body {
    .reply-list .comment-box {
        width: 320px;
    }
-}
+} */
