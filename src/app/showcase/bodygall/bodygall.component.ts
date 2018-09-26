@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, OnChanges, OnDestroy} from '@angular/core';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { HumorService } from '../service/humor.service';
 import { ViewChild } from '@angular/core';
 import { Paginator } from '../../components/paginator/paginator';
@@ -9,7 +9,7 @@ import { Paginator } from '../../components/paginator/paginator';
   templateUrl: './bodygall.component.html',
   styleUrls: ['./bodygall.component.css']
 })
-export class BodygallComponent implements OnInit {
+export class BodygallComponent implements OnInit, OnChanges,OnDestroy {
   @ViewChild('p') paginator: Paginator;
 
   data : any;
@@ -92,6 +92,17 @@ export class BodygallComponent implements OnInit {
     this.paginator.first = (page-1) * 10;
   }
   ngOnInit() {
+    console.log(this.route.snapshot.paramMap)
+    this.route.url.subscribe((url:UrlSegment[])=>{
+      console.log(url[0].path)
+      console.log(url[1].path)
+      console.log(url[2].path)
+
+      this.type = url[1].path;
+      this.page = url[2].path;
+    })
+
+    this.init(this.page);
     this.cols = [
       { field: 'vin', header: '제목' },
       { field: 'year', header: 'Year' },
@@ -109,6 +120,18 @@ export class BodygallComponent implements OnInit {
     console.log(event)
     this.page = event.page + 1
     this.init(event.page + 1);
+}
+
+onSelect(t){
+  console.log(t)
+}
+
+ngOnChanges(){
+  console.log('OnChanges')
+}
+
+ngOnDestroy(){
+  console.log('ngOnDestroy')
 }
 
 }

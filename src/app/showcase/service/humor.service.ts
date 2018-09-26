@@ -146,5 +146,33 @@ export class HumorService{
         )
     }
 
+    getNaverImages(q){
+        return this.http.get('https://motherbirds.com/api/getNaverImages?qurey='+ q).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getNaverNews(q){
+        return this.http.get('https://motherbirds.com/api/getNaverNews?qurey='+ q).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getYoutube(q){
+        return this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&origin=https://motherbirds.com/&key=AIzaSyCRMcSKoW0e7YZAZn3DFHfTqRLbQWPerk4&q='+q).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
+    getYoutubeMusic(q){
+        return this.http.get('https://motherbirds.com/api/getYoutubeMusic?q=' + q).
+        pipe(
+            map(res=>res.json())
+        )
+    }
+
     
 }

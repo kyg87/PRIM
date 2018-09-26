@@ -10,7 +10,7 @@
         </a>
 
         <ul class="topbar-menu">
-            <li>
+            <!-- <li>
                 <a href="#" [routerLink]="['/setup']">GET STARTED</a>
             </li>
             <li class="topbar-menu-themes">
@@ -52,7 +52,7 @@
             </li>
             <li>
                 <a [routerLink]="['/support']">SUPPORT</a>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -66,16 +66,16 @@
             </a>
             <div [ngClass]="{'submenushow': (instartitle.id == activeMenuId), 'submenuhide': (instartitle.id != activeMenuId)}">
                 <!-- <a [routerLink]="['/instagall']" (click)="menuActive = false">&#9679; instarGalleria</a> -->
-                <a [routerLink]="['/content', 'body', 1 ]" (click)="menuActive = false">&#9679; bodyGalleria</a>
-                <a [routerLink]="['/content', 'star', 1 ]" (click)="menuActive = false">&#9679; starGalleria</a>
-                <a [routerLink]="['/content', 'humor', 1 ]" (click)="menuActive = false">&#9679; humorGalleria</a>
+                <a  [routerLink]="['/content', 'body', 1 ]" (click)="onSelect('body')">&#9679; bodyGalleria</a>
+                <a  [routerLink]="['/content', 'star', 1 ]" (click)="onSelect('star')">&#9679; starGalleria</a>
+                <a  [routerLink]="['/content', 'humor', 1 ]" (click)="onSelect('humor')">&#9679; humorGalleria</a>
                 <!-- <a [routerLink]="['/blogging']" (click)="menuActive = false">&#9679; blogging</a>
                 <a [routerLink]="['/login']" (click)="menuActive = false">&#9679; login</a>
                 <a [routerLink]="['/signup']" (click)="menuActive = false">&#9679; signup</a>
                 <a [routerLink]="['/comments']" (click)="menuActive = false">&#9679; comments</a> -->
             </div>
 
-            <a id="menu_admin" #admintitle [class.active-menuitem]="admintitle.id == activeMenuId"
+            <!-- <a id="menu_admin" #admintitle [class.active-menuitem]="admintitle.id == activeMenuId"
                     (click)="activeMenuId = (activeMenuId === admintitle.id ? null : admintitle.id)">
                     <img src="assets/showcase/images/icons/misc-active.svg" class="layout-menu-icon-active"/>
                     <img src="assets/showcase/images/icons/misc.svg" class="layout-menu-icon-inactive"/>
@@ -83,13 +83,13 @@
             </a>
             <div [ngClass]="{'submenushow': (admintitle.id == activeMenuId), 'submenuhide': (admintitle.id != activeMenuId)}">
    
-                <!-- <a [routerLink]="['/sysProgram']" (click)="menuActive = false">&#9679; sysProgram</a> -->
-                <!-- <a [routerLink]="['/blog']" (click)="menuActive = false">&#9679; blog</a> -->
+                <a [routerLink]="['/sysProgram']" (click)="menuActive = false">&#9679; sysProgram</a>
+                <a [routerLink]="['/blog']" (click)="menuActive = false">&#9679; blog</a>
                 <a [routerLink]="['/p5']" (click)="menuActive = false">&#9679; p5</a>
                 <a [routerLink]="['/home1']" (click)="menuActive = false">&#9679; home1</a>
 
-                <!-- <a [routerLink]="['/barChart']" (click)="menuActive = false">&#9679; barChart</a> -->
-            </div>
+                <a [routerLink]="['/barChart']" (click)="menuActive = false">&#9679; barChart</a>
+            </div> -->
         </div>
     </div>
 
@@ -118,3 +118,5 @@
     </div>
 
 </div>
+
+

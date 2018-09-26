@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {trigger,state,style,transition,animate} from '@angular/animations';
 import { HumorService } from './service/humor.service';
 import { Location } from '@angular/common';
 import { UserService } from './user.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { BodygallComponent } from '../showcase/bodygall/bodygall.component';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 @Component({
   selector: 'app-root',
@@ -36,7 +38,9 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
   ],
 })
 export class AppComponent implements OnInit{
-    
+    @ViewChild(BodygallComponent)
+    private bodygallComponent : BodygallComponent;
+
     menuActive: boolean;
     
     activeMenuId: string;
@@ -44,11 +48,15 @@ export class AppComponent implements OnInit{
     notification: boolean = false;
     constructor(
         private location : Location,
+        private route: ActivatedRoute,
+        private router: Router,
       ){
 
       }
     ngOnInit() {
       setTimeout(()=>this.notification = true , 1000)
+
+
     }
     
     changeTheme(event: Event, theme: string) {
@@ -58,6 +66,7 @@ export class AppComponent implements OnInit{
     }
     
     onMenuButtonClick(event: Event) {
+        console.log('aa')
         this.menuActive = !this.menuActive;
         event.preventDefault();
     }
@@ -65,5 +74,9 @@ export class AppComponent implements OnInit{
     closeNotification(event) {
       this.notification = false;
       event.preventDefault();
+    }
+
+    onSelect(t){
+        this.menuActive = false
     }
 }

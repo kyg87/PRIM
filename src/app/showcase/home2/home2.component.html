@@ -1,0 +1,72 @@
+<div class="ui-g">
+  <div>
+    <!-- <button pButton type="button" label="Primary" class="ui-button-rounded"></button> -->
+    <p-selectButton [options]="types" [(ngModel)]="selectedType" (click)="onClick()"></p-selectButton>
+   
+  </div>
+  <div class="ui-g-12">
+    <!-- <iframe id = "youtube_player" width="100%" height="315" [src]="url" frameborder="0" allowfullscreen></iframe> -->
+    <youtube-player
+    [videoId]="id"
+    (ready)="savePlayer($event)"
+    (change)="onStateChange($event)"
+    width ="100%"
+  ></youtube-player>
+  </div>
+  <div class="ui-g-12">
+      <p-table [columns]="cols" [value]="youtubeData" [paginator]="true" [rows]="10" dataKey="title" 
+      selectionMode="single" (onRowSelect)="onRowSelect($event)" >
+          <ng-template pTemplate="caption">
+              <span>{{update_dt}}</span>
+          </ng-template>
+          <ng-template pTemplate="header" let-columns>
+              <!-- <span>{{update_dt}}</span> -->
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData  style="margin-top: 20px">
+                <tr [pSelectableRow]="rowData">
+
+                    <td style="width: 30%" class="ui-p-4">
+                      <img style="width: 80px" src="{{rowData.imgSrc}}"> 
+                    </td>
+                    <td>
+                      <div style="">
+                          <b><span style="background-color: #00c0ef; padding: 0.2em .6em .3em;">{{rowData.rank}}</span></b> {{rowData.title}}
+                      </div>
+                      
+                      <div>
+                        {{rowData.song}}
+                      </div>
+
+                     </td>
+                    
+
+                </tr>
+            </ng-template>
+          <!-- <ng-template pTemplate="summary">
+              <span>{{update_dt}}</span>
+          </ng-template> -->
+      </p-table>
+  </div>
+  <div class="ui-g">
+    <!-- <p-card class="ui-g-12 ui-md-6" *ngFor="let youtube of youtubeData"  
+    [style]="{ 'text-align': 'center', padding: '2px' }"
+      styleClass="ui-card-shadow" >
+      <p-header>
+
+        <iframe width="100%" height="360px"  [src]="youtube.url">
+        </iframe>
+
+      </p-header>
+     
+    </p-card> -->
+
+
+
+    <!-- <p-lightbox class="ui-g-12" type="content" *ngFor="let youtube of youtubeData">
+      <a class="group" href="#">
+          Watch Video
+      </a>
+      <iframe width="100%" height="315" [src]="youtube.url" frameborder="0" allowfullscreen></iframe>
+  </p-lightbox> -->
+  </div>
+</div>

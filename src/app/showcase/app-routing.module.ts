@@ -14,10 +14,11 @@ import { BlogComponent } from './blog/blog.component';
 import { P5Component } from './p5/p5.component';
 import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
 import { Home1Component } from './home1/home1.component';
+import { Home2Component } from './home2/home2.component';
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path: '', component: HomeComponent},
+            {path: '', component: Home2Component},
             {path: 'setup', loadChildren: './components/setup/setup.module#SetupModule'},
             {path: 'theming', loadChildren: './components/theming/theming.module#ThemingModule'},
             {path: 'accordion', loadChildren: './components/accordion/accordiondemo.module#AccordionDemoModule'},
@@ -105,7 +106,9 @@ import { Home1Component } from './home1/home1.component';
             {path: 'validation', loadChildren: './components/validation/validationdemo.module#ValidationDemoModule'},
 
             {path: 'instagall', component: InstargallComponent},
-            {path: 'content/:type/:page', component: BodygallComponent},
+            {path: 'content/humor/:page', component: BodygallComponent},
+            {path: 'content/body/:page', component: BodygallComponent},
+            {path: 'content/star/:page', component: BodygallComponent},
             {path: 'content/:type/:page/:id', component: ContentComponent},
             {path: 'blogging', component: BloggingComponent},
             {path: 'login', component: LoginComponent},

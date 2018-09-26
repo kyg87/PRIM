@@ -17,7 +17,7 @@ export class ContentComponent implements OnInit {
   data : any;
   type : any;
   page : any;
-  test : string = 'aaa';
+
   constructor(
     private humorService : HumorService,
     private route : ActivatedRoute,
@@ -34,19 +34,19 @@ export class ContentComponent implements OnInit {
       humorService.getStar(id).subscribe(data => {
         console.log(data)
         this.data = data;
-        this.commentsComponent.onInit(id);
+        // this.commentsComponent.onInit(id);
       });
     }
     else if (this.type == 'body') {
       humorService.getBodyGall(id).subscribe(data => {
         this.data = data;
-        this.commentsComponent.onInit(id);
+        // this.commentsComponent.onInit(id);
       });
     }
     else if (this.type == 'humor') {
       humorService.getHumor(id).subscribe(data => {
         this.data = data;
-        this.commentsComponent.onInit(id);
+        // this.commentsComponent.onInit(id);
         console.log(this.data)
       });
     }
@@ -54,13 +54,17 @@ export class ContentComponent implements OnInit {
       humorService.getboard(id).subscribe(data=>{
         console.log(data)
         this.data = data[0];
-        this.commentsComponent.onInit(id);
+        // this.commentsComponent.onInit(id);
       });
     }
     
   }
 
   ngOnInit() {
+    console.log('d')
   }
 
+  test(){
+    console.log('ssfsf')
+  }
 }

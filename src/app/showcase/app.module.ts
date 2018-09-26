@@ -19,12 +19,14 @@ import { DataViewModule } from '../components/dataview/dataview';
 import { CardModule} from '../components/card/card';
 import { ButtonModule} from '../components/button/button';
 import { GalleriaModule} from '../components/galleria/galleria';
+import { LightboxModule } from '../components/lightbox/lightbox';
 import { BodygallComponent } from './bodygall/bodygall.component';
 
 import { PanelModule } from '../components/panel/panel';
 import { PaginatorModule } from '../components/paginator/paginator';
 import { GrowlModule} from '../components/growl/growl';
 import { SplitButtonModule} from '../components/splitbutton/splitbutton';
+import { SelectButtonModule } from '../components/selectbutton/selectbutton';
 import { TableModule} from '../components/table/table';
 import { ContentComponent } from './content/content.component';
 import { AdsenseModule } from 'ng2-adsense';
@@ -47,6 +49,15 @@ import { BlogComponent } from './blog/blog.component';
 import { P5Component } from './p5/p5.component';
 import { BarChartComponent } from './shared/bar-chart/bar-chart.component';
 import { Home1Component } from './home1/home1.component';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Home2Component } from './home2/home2.component';
+
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
+
 export function getAuthServiceConfigs(){
   
 }
@@ -82,7 +93,8 @@ export function provideConfig() {
     BlogComponent,
     P5Component,
     BarChartComponent,
-    Home1Component
+    Home1Component,
+    Home2Component
   ],
   imports: [
     BrowserModule,
@@ -96,14 +108,21 @@ export function provideConfig() {
     CardModule,
     ButtonModule,
     GalleriaModule,
+    LightboxModule,
     PanelModule,
     GrowlModule,
     SplitButtonModule,
+    SelectButtonModule,
     TableModule,
     PaginatorModule,
     TreeModule,
     EditorModule,
     CodeHighlighterModule,
+    YoutubePlayerModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     AdsenseModule.forRoot({
       adClient: 'ca-pub-2651262364281330',
       adSlot: 4461430600,
@@ -113,7 +132,8 @@ export function provideConfig() {
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    })
+    }),
+    
   ],
   providers: [
       // { provide: LocationStrategy, useClass: HashLocationStrategy },
@@ -126,3 +146,4 @@ export function provideConfig() {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

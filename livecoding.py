@@ -9,7 +9,7 @@ for i in range(1,len(sys.argv)):
     inputText = sys.argv[i]
 print(inputText)
 
-req = requests.get("https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=" + inputText) #connection
+req = requests.get("https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=" + inputText + "&sm=tab_pge&sort=0&photo=0&field=0&reporter_article=&pd=0&ds=&de=&docid=&nso=so:r,p:all,a:all&mynews=0&cluster_rank=29&start=0&refresh_start=0") #connection
 #req = requests.get("http://datalab.naver.com/keyword/realtimeList.naver?where=main")
 time.sleep(2)
 html =  req.text # naver에서 소스를 받아오기
